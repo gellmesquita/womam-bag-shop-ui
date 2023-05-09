@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:womam_shop/constants.dart';
 import 'package:womam_shop/model/product.dart';
+import 'package:womam_shop/screen/details.dart';
 import 'package:womam_shop/screen/widgets/categories.dart';
 import 'package:womam_shop/screen/widgets/item_card.dart';
 
@@ -44,7 +45,13 @@ class _BodyState extends State<Body> {
               crossAxisSpacing: kDefaultPaddin,
               childAspectRatio: 0.74
             ), 
-            itemBuilder: (context, index) => ItemCard(index:index),
+            itemBuilder: (context, index) => ItemCard(
+              index:index,
+              press:()=> Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Details(product: products[index])),
+              ) 
+            ),
           ),
         )
       ],
