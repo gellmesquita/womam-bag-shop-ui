@@ -15,7 +15,7 @@ class Details extends StatelessWidget {
     return Scaffold(
       backgroundColor: product.color,
       appBar: buildAppBar(context),
-      body: BodyDetails(),
+      body: BodyDetails(product: product,),
     
     );
   }
