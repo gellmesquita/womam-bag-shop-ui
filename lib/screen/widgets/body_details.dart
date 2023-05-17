@@ -34,7 +34,6 @@ class _BodyDetailsState extends State<BodyDetails> {
             child: Stack(
               children: [
                 Container(
-                  height: 500,
                   margin: EdgeInsets.only(top: size.height * 0.3),
                   padding: EdgeInsets.only(
                     top: size.height * 0.12,
@@ -52,128 +51,7 @@ class _BodyDetailsState extends State<BodyDetails> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    const Text(
-                                      "Color",
-                                      style: TextStyle(
-                                      fontSize: 18, fontWeight: FontWeight.bold),
-                                    ),
-                                    Row(
-                                      children: [
-                                        colorChooseType(color:widget.product.color),
-                                        colorChooseType(color:Color.fromARGB(66, 15, 8, 33)),
-                                        colorChooseType(color:Color.fromARGB(66, 25, 224, 91)),
-                                        colorChooseType(color:Color.fromARGB(66, 230, 217, 35)),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                RichText(
-                                  text: TextSpan(
-                                    children: [
-                                      const TextSpan(
-                                        text: "Size\n",
-                                        style: TextStyle(
-                                          fontSize: 18, 
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.grey
-                                        ),
-                                      ),
-                                      TextSpan(
-                                        text:"${widget.product.size}",
-                                        style: Theme.of(context).textTheme.headline5 
-                                      )
-                                    ]
-                                  ),
-                                
-                                )
-                              ],
-                            ),
-                            const Flexible(
-                              child:  Text(
-                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,",
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 14,
-                                  height: 1.5
-                                ),
-                                textAlign: TextAlign.justify,
-                              )  
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                cartCounterState(),
-                                Container(
-                                  width: 40,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 239, 235, 235),
-                                    borderRadius: BorderRadius.circular(10)
-                                  ),
-                                  child: const Icon(
-                                    Icons.favorite,
-                                    color: Colors.red,
-                                  ),
-                                )
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Container(
-                                  width: 50,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: widget.product.color,
-                                    ),
-                                    borderRadius: BorderRadius.circular(15)
-                                  ),
-                                  child: Icon(
-                                    Icons.shopify,
-                                    color:  widget.product.color,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                Expanded(
-                                  child: Container(
-                                    height: 48,
-                                
-                                    child: TextButton(
-                                      onPressed: () {}, 
-                                      style: ButtonStyle(
-                                        backgroundColor: MaterialStatePropertyAll(
-                                          widget.product.color
-                                        ), 
-                                        shape: MaterialStatePropertyAll(
-                                          RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(10)
-                                          )
-                                        )     
-                                      ),
-                                      child: const Text(
-                                        "COMPRAR AGORA",
-                                        style: TextStyle(
-                                          color: Colors.white
-                                        ),
-                                      )
-                                    ),
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
+                        child: bodyMain(context),
                       ),
                     ],
                   ),
@@ -185,6 +63,135 @@ class _BodyDetailsState extends State<BodyDetails> {
         ],
       ),
     );
+  }
+
+  Column bodyMain(BuildContext context) {
+    return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    "Color",
+                                    style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
+                                  ),
+                                  Row(
+                                    children: [
+                                      colorChooseType(color:widget.product.color),
+                                      colorChooseType(color:Color.fromARGB(66, 15, 8, 33)),
+                                      colorChooseType(color:Color.fromARGB(66, 25, 224, 91)),
+                                      colorChooseType(color:Color.fromARGB(66, 230, 217, 35)),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              RichText(
+                                text: TextSpan(
+                                  children: [
+                                    const TextSpan(
+                                      text: "Size\n",
+                                      style: TextStyle(
+                                        fontSize: 18, 
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.grey
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text:"${widget.product.size}",
+                                      style: Theme.of(context).textTheme.headline5 
+                                    )
+                                  ]
+                                ),
+                              
+                              )
+                            ],
+                          ),
+                          const Flexible(
+                            child:  Text(
+                              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,",
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 14,
+                                height: 1.5
+                              ),
+                              textAlign: TextAlign.justify,
+                            )  
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              cartCounterState(),
+                              Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 239, 235, 235),
+                                  borderRadius: BorderRadius.circular(10)
+                                ),
+                                child: const Icon(
+                                  Icons.favorite,
+                                  color: Colors.red,
+                                ),
+                              )
+                            ],
+                          ),
+                          buttonBuy()
+                        ],
+                      );
+  }
+
+  Row buttonBuy() {
+    return Row(
+                            children: [
+                              Container(
+                                width: 50,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: widget.product.color,
+                                  ),
+                                  borderRadius: BorderRadius.circular(15)
+                                ),
+                                child: Icon(
+                                  Icons.shopify,
+                                  color:  widget.product.color,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Expanded(
+                                child: Container(
+                                  height: 48,
+                              
+                                  child: TextButton(
+                                    onPressed: () {}, 
+                                    style: ButtonStyle(
+                                      backgroundColor: MaterialStatePropertyAll(
+                                        widget.product.color
+                                      ), 
+                                      shape: MaterialStatePropertyAll(
+                                        RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(10)
+                                        )
+                                      )     
+                                    ),
+                                    child: const Text(
+                                      "COMPRAR AGORA",
+                                      style: TextStyle(
+                                        color: Colors.white
+                                      ),
+                                    )
+                                  ),
+                                ),
+                              )
+                            ],
+                          );
   }
 
   Padding cartCounterState({IconData? icon, Function? press}) {
@@ -301,9 +308,12 @@ class _BodyDetailsState extends State<BodyDetails> {
                 width: kDefaultPaddin,
               ),
               Expanded(
-                child: Image.asset(
-                  widget.product.image,
-                  fit: BoxFit.fill,
+                child: Hero(
+                  tag: "${widget.product.id}",
+                  child: Image.asset(
+                    widget.product.image,
+                    fit: BoxFit.fill,
+                  ),
                 ),
               )
             ],
